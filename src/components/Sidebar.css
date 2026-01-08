@@ -1,0 +1,120 @@
+.sidebar {
+  width: 240px;
+  background-color: var(--sidebar-bg);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  box-sizing: border-box;
+  transition: width 0.3s ease, padding 0.3s ease;
+  overflow-x: hidden;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.sidebar.collapsed {
+  width: 80px;
+  padding: 2rem 0;
+}
+
+.sidebar-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.sidebar.collapsed .sidebar-title {
+  font-size: 1.2rem;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar nav li a {
+  display: flex;
+  align-items: center;
+  color: #A0AEC0;
+  text-decoration: none;
+  padding: 0.9rem 1.2rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebar.collapsed nav li a {
+  justify-content: center;
+  padding: 0.9rem 0.5rem;
+}
+
+.sidebar nav li a .icon {
+  margin-right: 1rem;
+  font-size: 1.2rem;
+}
+
+.sidebar.collapsed nav li a .icon {
+  margin-right: 0;
+}
+
+.sidebar nav li a:hover {
+  background-color: var(--card-bg);
+  color: #fff;
+}
+
+.sidebar nav li a.active {
+  background-color: var(--primary-accent);
+  color: #040710;
+  font-weight: 700;
+}
+
+.sidebar-alert-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 0.9rem 1.2rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  transition: background-color 0.2s, color 0.2s;
+  color: #A0AEC0;
+  text-decoration: none;
+}
+
+.sidebar.collapsed .sidebar-alert-link {
+  justify-content: center;
+}
+
+.sidebar-alert-link:hover {
+  background-color: var(--card-bg);
+  color: #fff;
+}
+
+.sidebar-alert-link.disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.sidebar-alert-link.active {
+  font-weight: 700;
+}
+
+.alert-indicator {
+  width: 10px;
+  height: 10px;
+  background-color: var(--danger-color);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--danger-color);
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}

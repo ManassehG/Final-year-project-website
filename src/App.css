@@ -1,0 +1,17 @@
+.app-layout {
+  display: flex;
+  padding-left: 240px; /* Initial padding for expanded sidebar */
+  transition: padding-left 0.3s ease;
+}
+
+.app-layout.sidebar-collapsed {
+  padding-left: 80px; /* Padding for collapsed sidebar */
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 1.5rem 2.5rem;
+  height: 100vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+}

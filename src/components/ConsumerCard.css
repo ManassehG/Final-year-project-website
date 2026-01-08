@@ -1,0 +1,127 @@
+.consumer-card {
+  background-color: #2c2c2e;
+  border-radius: 15px;
+  padding: 20px;
+  color: #ffffff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.consumer-card:hover {
+  transform: translateY(-5px);
+}
+
+.consumer-card .card-header {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 10px;
+}
+
+.consumer-card .card-title {
+  margin: 0;
+  font-size: 1.6em;
+  text-align: center;
+  font-weight: bold;
+  color: #f0f0f0;
+}
+
+.consumer-card .card-body .chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+  gap: 20px;
+  flex-wrap: wrap; /* Allow items to wrap */
+}
+
+.consumer-card .doughnut-chart {
+  position: relative;
+  width: 130px; /* Fixed width for larger screens */
+  height: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+.consumer-card .bar-chart {
+  width: 100%; /* Take full width on smaller screens */
+  max-width: 200px; /* Max width for larger screens */
+  height: 130px;
+}
+
+@media (max-width: 400px) {
+  .consumer-card .doughnut-chart {
+    width: 100%; /* Full width on very small screens */
+    height: 150px; /* Adjust height for better visibility */
+  }
+
+  .consumer-card .bar-chart {
+    width: 100%; /* Full width on very small screens */
+    max-width: none; /* Remove max-width constraint */
+  }
+}
+
+.consumer-card .metrics-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: space-between;
+}
+
+.consumer-card .metric {
+  display: flex;
+  align-items: center;
+  background-color: #3a3a3c;
+  padding: 12px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+  flex: 1 1 45%; /* Grow, shrink, and basis */
+  min-width: 150px; /* Minimum width before wrapping */
+}
+
+.consumer-card .metric:hover {
+  background-color: #4a4a4c;
+}
+
+.consumer-card .metric-icon {
+  font-size: 1.8em;
+  margin-right: 12px;
+  line-height: 1;
+}
+
+.consumer-card .metric-content {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  align-items: center;
+}
+
+/* ... (rest of the styles) ... */
+
+@media (max-width: 400px) {
+  .consumer-card .chart-container {
+    flex-direction: column;
+  }
+
+  .consumer-card .bar-chart {
+    width: 100%;
+  }
+
+  .consumer-card .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.consumer-card .metric-label {
+  font-weight: 500;
+  font-size: 0.95em;
+  color: #b0b0b0;
+}
+
+.consumer-card .metric-value {
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #f0f0f0;
+}

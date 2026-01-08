@@ -1,0 +1,33 @@
+.homepage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.homepage-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.homepage-content p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.launch-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.launch-button:hover {
+  background-color: #0056b3;
+}

@@ -1,0 +1,79 @@
+.metric-card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  padding: 1rem;
+  border: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.metric-card:hover {
+  border-color: var(--primary-accent);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #A0AEC0;
+  word-break: break-word;
+}
+
+.card-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.card-context {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #A0AEC0;
+  word-break: break-word;
+}
+
+.icon {
+  font-size: 1.2rem;
+}
+
+.bolt-icon {
+  color: var(--primary-accent);
+}
+
+.graph-icon {
+  color: var(--primary-accent);
+}
+
+.alert-icon {
+  color: var(--danger-color);
+}
+
+.status-icon {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: var(--success-color);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--success-color);
+}
+
+/* Assign value colors based on card type */
+.metric-card.icon-bolt .card-value,
+.metric-card.icon-graph .card-value {
+  color: var(--primary-accent);
+}
+
+.metric-card.icon-alert .card-value {
+  color: var(--danger-color);
+}
+
+.metric-card.icon-status .card-value {
+  color: var(--success-color);
+}
