@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Header from './Header';
 import MetricCard from './MetricCard';
 import CurrentGraph from './CurrentGraph';
@@ -23,9 +24,9 @@ const Dashboard = ({ gridData, history, isTheft, toggleSidebar }) => {
         <MetricCard title="Total Current" value={`${mainTransformer.currentLevel.toFixed(2)} A`} context="Across all transformers" icon="bolt" />
         <MetricCard title="Consumer 1" value={`${consumers?.consumer1?.currentLevel.toFixed(2) ?? '0.00'} A`} context="Load" icon="graph" />
         <MetricCard title="Consumer 2" value={`${consumers?.consumer2?.currentLevel.toFixed(2) ?? '0.00'} A`} context="Load" icon="graph" />
-        <a href={isTheft ? theftLocation : '#'} target="_blank" rel="noopener noreferrer" className={`alert-link ${!isTheft ? 'disabled' : ''}`}>
+        <Link to={isTheft ? "/alerts" : "#"} className={`alert-link ${!isTheft ? 'disabled' : ''}`}>
           <MetricCard title="Active Alerts" value={isTheft ? '1' : '0'} context={isTheft ? "Theft Detected" : "All clear"} icon="alert" />
-        </a>
+        </Link>
       </div>
       <div className="charts-grid">
         <div className="chart-container">

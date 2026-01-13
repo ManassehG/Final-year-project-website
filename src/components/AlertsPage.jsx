@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
+import Header from './Header';
 import Map from './Map';
 import './AlertsPage.css';
 
-const AlertsPage = ({ isTheft, theftLocation, transformer }) => {
+const AlertsPage = ({ isTheft, theftLocation, transformer, toggleSidebar }) => {
   const [showMap, setShowMap] = useState(false);
 
   return (
-    <div className="alerts-page">
-      <h1 className="page-title">Alerts</h1>
+    <>
+      <Header toggleSidebar={toggleSidebar} />
+      <div className="alerts-page">
+        <h1 className="page-title">Alerts</h1>
       {isTheft ? (
         <div className="alert-card">
           <div className="alert-header">
@@ -31,6 +34,7 @@ const AlertsPage = ({ isTheft, theftLocation, transformer }) => {
         </div>
       )}
     </div>
+    </>
   );
 };
 

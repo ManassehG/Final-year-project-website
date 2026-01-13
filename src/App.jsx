@@ -88,7 +88,8 @@ function App() {
             <AlertsPage 
               isTheft={isTheft} 
               theftLocation={theftLocation} 
-              transformer={mainTransformer} 
+              transformer={mainTransformer}
+              toggleSidebar={toggleSidebar}
             />
           } />
         </Routes>
