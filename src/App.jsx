@@ -44,9 +44,15 @@ function App() {
     const unsubscribe = onValue(gridDataRef, (snapshot) => {
       const data = snapshot.val();
       if (data) {
+        const lat = data.Location?.lat;
+        const lon = data.Location?.lon; // Corrected to 'lon'
+        const mapUrl = lat && lon 
+          ? `https://maps.google.com/maps?q=${lat},${lon}&z=15&output=embed`
+          : '';
+
         const newData = {
           ...data,
-          theftLocation: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.201348389732!2d39.24222221477219!3d-6.771996995036898!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x185c4b3f3b3b3b3b%3A0x3b3b3b3b3b3b3b3b!2sUniversity%20of%20Dar%20es%20Salaam!5e0!3m2!1sen!2stz!4v1620208938994!5m2!1sen!2stz',
+          theftLocation: mapUrl,
         };
         setGridData(newData);
         setHistory(prevHistory => [...prevHistory, { ...newData, timestamp: new Date().getTime() }].slice(-30));
