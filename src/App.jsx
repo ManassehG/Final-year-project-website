@@ -65,7 +65,13 @@ function App() {
 
   return (
     <div className={`app-layout ${isSidebarCollapsed ? 'sidebar-collapsed' : ''}`}>
-      <Sidebar isTheft={isTheft} theftLocation={theftLocation} isCollapsed={isSidebarCollapsed} />
+      {!isSidebarCollapsed && <div className="sidebar-overlay" onClick={toggleSidebar}></div>}
+      <Sidebar 
+        isTheft={isTheft} 
+        theftLocation={theftLocation} 
+        isCollapsed={isSidebarCollapsed} 
+        toggleSidebar={toggleSidebar}
+      />
       <main className="main-content">
         <Routes>
           <Route path="/" element={<HomePage />} />

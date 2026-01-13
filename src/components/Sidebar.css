@@ -32,6 +32,10 @@
   font-size: 1.2rem;
 }
 
+.mobile-close-btn {
+  display: none; /* Hidden on desktop */
+}
+
 .sidebar nav ul {
   list-style: none;
   padding: 0;
@@ -134,16 +138,28 @@
 
   .sidebar.collapsed {
     transform: translateX(-100%);
-    width: 240px; /* Maintain width to avoid layout shift during transition */
+    width: 240px; /* Maintain width */
     padding: 2rem 1.5rem; /* Maintain padding */
   }
 
-  /* When collapsed (hidden), hide content to prevent focus/interaction */
   .sidebar.collapsed .sidebar-title,
   .sidebar.collapsed nav {
     visibility: hidden;
-    transition: visibility 0s linear 0.3s; /* Delay hiding until transition done */
+    transition: visibility 0s linear 0.3s;
   }
-
-  /* Overlay Background (optional, but good for UX) - would require structural change in App.jsx or pseudo-element */
+  
+  .mobile-close-btn {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    z-index: 1001;
+  }
 }

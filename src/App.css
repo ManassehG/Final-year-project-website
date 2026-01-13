@@ -16,6 +16,10 @@
   box-sizing: border-box;
 }
 
+.sidebar-overlay {
+  display: none; /* Hidden by default on desktop */
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .app-layout {
@@ -28,5 +32,17 @@
 
   .main-content {
     padding: 1rem 1rem;
+  }
+
+  .sidebar-overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 900; /* Below sidebar (1000) but above everything else */
+    backdrop-filter: blur(2px);
   }
 }

@@ -2,9 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Sidebar.css';
 
-function Sidebar({ isTheft, theftLocation, isCollapsed }) {
+function Sidebar({ isTheft, theftLocation, isCollapsed, toggleSidebar }) {
   return (
     <aside className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
+      <button className="mobile-close-btn" onClick={toggleSidebar}>×</button>
       <h1 className="sidebar-title">
         <Link to="/">{isCollapsed ? 'PG' : 'PowerGuard'}</Link>
       </h1>
