@@ -15,3 +15,18 @@
   overflow-y: auto;
   box-sizing: border-box;
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .app-layout {
+    padding-left: 0 !important;
+  }
+  
+  .app-layout.sidebar-collapsed {
+    padding-left: 0 !important;
+  }
+
+  .main-content {
+    padding: 1rem 1rem;
+  }
+}

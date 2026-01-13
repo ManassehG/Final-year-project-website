@@ -6,11 +6,12 @@
   flex-direction: column;
   height: 100vh;
   box-sizing: border-box;
-  transition: width 0.3s ease, padding 0.3s ease;
+  transition: width 0.3s ease, padding 0.3s ease, transform 0.3s ease;
   overflow-x: hidden;
   position: fixed;
   left: 0;
   top: 0;
+  z-index: 100; /* Ensure above content */
 }
 
 .sidebar.collapsed {
@@ -24,6 +25,7 @@
   color: #fff;
   margin-bottom: 3rem;
   text-align: center;
+  white-space: nowrap; /* Prevent text wrapping */
 }
 
 .sidebar.collapsed .sidebar-title {
@@ -46,6 +48,7 @@
   margin-bottom: 0.5rem;
   font-weight: 500;
   transition: background-color 0.2s, color 0.2s;
+  white-space: nowrap; /* Prevent text wrapping */
 }
 
 .sidebar.collapsed nav li a {
@@ -85,6 +88,7 @@
   transition: background-color 0.2s, color 0.2s;
   color: #A0AEC0;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .sidebar.collapsed .sidebar-alert-link {
@@ -117,4 +121,29 @@
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.3; }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 240px; /* Always full width when visible */
+    transform: translateX(0);
+    box-shadow: 4px 0 15px rgba(0,0,0,0.5); /* Add shadow for overlay effect */
+    z-index: 1000;
+  }
+
+  .sidebar.collapsed {
+    transform: translateX(-100%);
+    width: 240px; /* Maintain width to avoid layout shift during transition */
+    padding: 2rem 1.5rem; /* Maintain padding */
+  }
+
+  /* When collapsed (hidden), hide content to prevent focus/interaction */
+  .sidebar.collapsed .sidebar-title,
+  .sidebar.collapsed nav {
+    visibility: hidden;
+    transition: visibility 0s linear 0.3s; /* Delay hiding until transition done */
+  }
+
+  /* Overlay Background (optional, but good for UX) - would require structural change in App.jsx or pseudo-element */
 }
