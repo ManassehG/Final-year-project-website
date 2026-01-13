@@ -3,7 +3,7 @@ import Header from './Header';
 import Map from './Map';
 import './AlertsPage.css';
 
-const AlertsPage = ({ isTheft, theftLocation, transformer, toggleSidebar }) => {
+const AlertsPage = ({ isTheft, theftLocation, externalMapUrl, transformer, toggleSidebar }) => {
   const [showMap, setShowMap] = useState(false);
 
   return (
@@ -31,9 +31,22 @@ const AlertsPage = ({ isTheft, theftLocation, transformer, toggleSidebar }) => {
         )}
         
         <div className="location-section" style={{ marginTop: '20px' }}>
-          <button className="btn-location" onClick={() => setShowMap(!showMap)}>
-            {showMap ? 'Hide Monitored Location' : 'Show Monitored Location'}
-          </button>
+          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+            <button className="btn-location" onClick={() => setShowMap(!showMap)}>
+              {showMap ? 'Hide Monitored Location' : 'Show Monitored Location'}
+            </button>
+            {externalMapUrl && (
+              <a 
+                href={externalMapUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="btn-location"
+                style={{ textDecoration: 'none', display: 'inline-block', textAlign: 'center' }}
+              >
+                Open in Google Maps ↗
+              </a>
+            )}
+          </div>
           {showMap && <Map location={theftLocation} />}
         </div>
       </div>

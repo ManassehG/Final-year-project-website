@@ -44,15 +44,21 @@ function App() {
     const unsubscribe = onValue(gridDataRef, (snapshot) => {
       const data = snapshot.val();
       if (data) {
-        const lat = data.Location?.lat;
-        const lon = data.Location?.lon; // Corrected to 'lon'
+        const lat = data.location?.lat;
+        const lon = data.location?.lon;
+        
         const mapUrl = lat && lon 
           ? `https://maps.google.com/maps?q=${lat},${lon}&z=15&output=embed`
+          : '';
+          
+        const externalMapUrl = lat && lon 
+          ? `https://www.google.com/maps?q=${lat},${lon}`
           : '';
 
         const newData = {
           ...data,
           theftLocation: mapUrl,
+          externalMapUrl: externalMapUrl,
         };
         setGridData(newData);
         setHistory(prevHistory => [...prevHistory, { ...newData, timestamp: new Date().getTime() }].slice(-30));
@@ -94,6 +100,7 @@ function App() {
             <AlertsPage 
               isTheft={isTheft} 
               theftLocation={theftLocation} 
+              externalMapUrl={gridData.externalMapUrl}
               transformer={mainTransformer}
               toggleSidebar={toggleSidebar}
             />
