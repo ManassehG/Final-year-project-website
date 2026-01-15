@@ -17,6 +17,9 @@ const AlertsPage = ({ isTheft, theftLocation, externalMapUrl, transformer, toggl
         {isTheft ? (
           <div className="alert-card">
             <div className="alert-header">
+              <div className={`alert-status ${isTheft ? 'theft-detected' : 'no-theft'}`}>
+                1
+              </div>
               <h2>Power Theft Detected!</h2>
               <p>Abnormal power usage detected at the following transformer:</p>
             </div>
@@ -29,6 +32,9 @@ const AlertsPage = ({ isTheft, theftLocation, externalMapUrl, transformer, toggl
           </div>
         ) : (
           <div className="no-alerts">
+            <div className={`alert-status ${isTheft ? 'theft-detected' : 'no-theft'}`}>
+                0
+            </div>
             <p>No active alerts. System is operating normally.</p>
           </div>
         )}

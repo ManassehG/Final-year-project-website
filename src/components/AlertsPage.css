@@ -8,10 +8,9 @@
 }
 
 .alert-status {
-  text-align: center;
-  font-size: 5rem;
+  font-size: 3em; /* Slightly smaller than before to fit within existing layout */
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .alert-status.theft-detected {
