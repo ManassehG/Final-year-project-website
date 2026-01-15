@@ -75,8 +75,8 @@ const CurrentGraph = ({ history }) => {
           {
             label: 'Main',
             data: mainData,
-            borderColor: 'var(--primary-accent)',
-            backgroundColor: 'rgba(0, 255, 255, 0.1)',
+            borderColor: '#FFFFFF',
+            backgroundColor: 'rgba(255, 255, 255, 0.1)',
             fill: true,
           },
           {
