@@ -72,8 +72,13 @@ function App() {
   const consumerArray = consumers ? Object.values(consumers) : [];
   const totalConsumerCurrent = consumerArray.reduce((acc, consumer) => acc + (consumer.currentLevel || 0), 0);
   const currentDifference = mainTransformer.currentLevel - totalConsumerCurrent;
-  const theftThreshold = 0.15 * mainTransformer.currentLevel;
+  const theftThreshold = 0.05 * mainTransformer.currentLevel;
   const isTheft = currentDifference > theftThreshold;
+
+  console.log("mainTransformer.currentLevel", mainTransformer.currentLevel);
+  console.log("totalConsumerCurrent", totalConsumerCurrent);
+  console.log("currentDifference", currentDifference);
+  console.log("isTheft", isTheft);
 
   return (
     <div className={`app-layout ${isSidebarCollapsed ? 'sidebar-collapsed' : ''}`}>

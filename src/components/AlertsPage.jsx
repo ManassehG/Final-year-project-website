@@ -32,9 +32,6 @@ const AlertsPage = ({ isTheft, theftLocation, externalMapUrl, transformer, toggl
           </div>
         ) : (
           <div className="no-alerts">
-            <div className={`alert-status ${isTheft ? 'theft-detected' : 'no-theft'}`}>
-                0
-            </div>
             <p>No active alerts. System is operating normally.</p>
           </div>
         )}
