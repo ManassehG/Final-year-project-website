@@ -24,9 +24,8 @@ const Dashboard = ({ gridData, history, isTheft, toggleSidebar }) => {
         <MetricCard title="Total Current" value={`${mainTransformer.currentLevel.toFixed(2)} A`} context="Across all transformers" icon="bolt" />
         <MetricCard title="Consumer 1" value={`${consumers?.consumer1?.currentLevel.toFixed(2) ?? '0.00'} A`} context="Load" icon="graph" />
         <MetricCard title="Consumer 2" value={`${consumers?.consumer2?.currentLevel.toFixed(2) ?? '0.00'} A`} context="Load" icon="graph" />
-        <Link to="/alerts" className="alert-link">
-          <MetricCard title="Active Alerts" value={isTheft ? '1' : '0'} context={isTheft ? "Theft Detected" : "All clear"} icon="alert" />
-        </Link>
+        <MetricCard title="Active Alerts" value={isTheft ? '1' : '0'} context={isTheft ? "Theft Detected" : "All clear"} icon="alert" />
+
       </div>
       <div className="charts-grid">
         <div className="chart-container">
