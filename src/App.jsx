@@ -72,7 +72,7 @@ function App() {
   const consumerArray = consumers ? Object.values(consumers) : [];
   const totalConsumerCurrent = consumerArray.reduce((acc, consumer) => acc + (consumer.currentLevel || 0), 0);
   const currentDifference = mainTransformer.currentLevel - totalConsumerCurrent;
-  const theftThreshold = 0.10 * mainTransformer.currentLevel;
+  const theftThreshold = 0.15 * mainTransformer.currentLevel;
   const isTheft = currentDifference > theftThreshold;
 
   return (
